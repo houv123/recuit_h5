@@ -1,0 +1,33 @@
+%inline-block{
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+%btn-base{
+  outline: none;
+  display: inline-block;
+  margin-bottom: 0;
+  vertical-align: middle;
+  font-weight: 400;
+  line-height: 1.2;
+  text-align: center;
+  white-space: nowrap;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 0;
+  cursor: pointer;
+  outline: 0;
+  -webkit-appearance: none;
+  -webkit-user-select: none;
+}
+%font-reset{
+  font-family:"Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft Yahei", Arial, STHeiti, sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+}
+
+%clear{
+  content: '';
+  display: table;
+  clear: both;
+}

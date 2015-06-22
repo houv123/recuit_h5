@@ -1,0 +1,6 @@
+@import "compass";
+@import "icons/*.png";
+
+$icons-layout:smart;
+$icons-sprite-dimensions:true;
+@include all-icons-sprites;

@@ -1,0 +1,31 @@
+@charset "utf-8";
+@import "compass";
+
+//variables for mixin MQ
+$small:480px;
+$middle:768px;
+$large:980px;
+//breakpoints for non-mobile first media query
+$wideScreen:1200px;
+$desktop:992px;
+$tablet:768px;
+$phone:480px;
+$retina:320px;
+
+//define susy grids setting
+$susy:(
+  columns:12,
+  container:1000px,
+  math:static,
+  output:float,
+);
+
+$base-c:#101111;
+$zi-bottom:0;
+$zi-mid:5;
+$zi-top:9;
+$zi-vtop:10;
+
+
+
+
