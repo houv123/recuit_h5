@@ -39,11 +39,11 @@ body {
 .swiper-container {
   width: 100%;
   height: 100%;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .swiper-slide {
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
+  overflow: hidden;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -58,6 +58,7 @@ body {
 img {
   max-width: 100%;
   height: auto;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .sd-cont {
@@ -82,7 +83,58 @@ a, a:link, a:active, a:visited {
   position: relative;
 }
 
+.ac {
+  -webkit-animation-play-state: running !important;
+  animation-play-state: running !important;
+}
+
 /*page first*/
+@-moz-keyframes zoomPop {
+  from {
+    -moz-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.3);
+  }
+  to {
+    -moz-box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+}
+@-webkit-keyframes zoomPop {
+  from {
+    -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.3);
+  }
+  to {
+    -webkit-box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+}
+@keyframes zoomPop {
+  from {
+    -moz-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.3);
+  }
+  to {
+    -moz-box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+}
+.tap-btn {
+  position: absolute;
+  z-index: 10;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.6);
+  left: 50%;
+  bottom: 30%;
+  -moz-animation: zoomPop 1s infinite ease;
+  -webkit-animation: zoomPop 1s infinite ease;
+  animation: zoomPop 1s infinite ease;
+}
+
 .pg1 {
   padding-top: 5%;
 }
@@ -90,6 +142,7 @@ a, a:link, a:active, a:visited {
   float: left;
   width: 50%;
   border: 1px solid #101111;
+  opacity: 0;
 }
 .pg1 section img {
   position: absolute;
@@ -177,22 +230,19 @@ a, a:link, a:active, a:visited {
 .pg1 .start-btn {
   position: absolute;
   bottom: 10%;
-  left: 50%;
+  left: 24%;
   width: 52.682%;
   height: 0;
   padding-top: 18.945%;
   border: none;
   outline: none;
-  background: url('../img/p1/btn-index.png?1434434650') transparent no-repeat center center;
+  background: url('../img/p1/btn-index.png?1435130410') transparent no-repeat center center;
   background-size: contain;
-  -moz-transform: translate3d(-50%, 0, 0);
-  -webkit-transform: translate3d(-50%, 0, 0);
-  transform: translate3d(-50%, 0, 0);
 }
 
 /*page second*/
 #page-swiper-wrapper > .swiper-slide:nth-of-type(2) {
-  background: url('../img/p2/pg2-bg.png?1434376510') center bottom repeat-x;
+  background: url('../img/p2/pg2-bg.png?1435130410') center bottom repeat-x;
   background-size: 50%;
 }
 
@@ -242,15 +292,15 @@ a, a:link, a:active, a:visited {
   margin: 0 8%;
 }
 .pg2 section:nth-of-type(2) .btn1 {
-  background-image: url('../img/p2/btn1.png?1434438574');
+  background-image: url('../img/p2/btn1.png?1435130410');
 }
 .pg2 section:nth-of-type(2) .btn2 {
-  background-image: url('../img/p2/btn2.png?1434438612');
+  background-image: url('../img/p2/btn2.png?1435130410');
 }
 
 /*page third*/
 .gender-sprite {
-  background-image: url('../img/p3/gender-s4dc955258a.png');
+  background-image: url('../img/p3/gender-sa610e74041.png');
   background-repeat: no-repeat;
 }
 
@@ -339,9 +389,23 @@ a, a:link, a:active, a:visited {
   right: 0;
   top: 0;
   bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   font-size: 1em;
-  padding: 13% 10% 0 12%;
+  padding: 0 10% 0 12%;
+}
+.p4 section:nth-of-type(2) h2:before {
+  content: '';
+  width: 1px;
+  height: 100%;
+  display: table-cell;
+  vertical-align: middle;
+}
+.p4 section:nth-of-type(2) h2 span {
+  display: table-cell;
+  vertical-align: middle;
 }
 @media only screen and (min-width: 480px) {
   .p4 section:nth-of-type(2) h2 {
@@ -399,7 +463,7 @@ a, a:link, a:active, a:visited {
   transition: all 0.2s linear;
 }
 .p4.qst-one {
-  background: url('../img/p4/hero.png?1434376092') right bottom no-repeat;
+  background: url('../img/p4/hero.png?1435130402') right bottom no-repeat;
   background-size: 50%;
 }
 .p4.qst-one .warning {
@@ -407,4 +471,107 @@ a, a:link, a:active, a:visited {
   position: absolute;
   bottom: 13%;
   right: 30%;
+}
+
+.p5 section:nth-of-type(1) {
+  text-align: center;
+  padding-top: 5%;
+}
+.p5 section:nth-of-type(1) .img1 {
+  width: 50%;
+}
+.p5 section:nth-of-type(2) {
+  width: 100%;
+  height: 0;
+  padding-top: 92.474916%;
+  background: url('../img/p5/box.png?1435130402') center center no-repeat;
+  background-size: contain;
+  position: relative;
+}
+.p5 section:nth-of-type(2) .scroll-bar {
+  position: absolute;
+  right: 5%;
+  top: 5%;
+  width: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 2px;
+}
+.p5 section:nth-of-type(2) .inner {
+  position: absolute;
+  z-index: 10;
+  width: 90%;
+  height: 90%;
+  left: 5%;
+  top: 5%;
+  overflow-y: hidden;
+}
+.p5 section:nth-of-type(2) .inner h2 {
+  font-size: 14px;
+  margin: 0.5em 0;
+  text-align: center;
+}
+.p5 section:nth-of-type(2) .inner li {
+  padding-left: 0.5em;
+}
+.p5 section:nth-of-type(3) {
+  text-align: center;
+  padding-top: 5%;
+}
+.p5 section:nth-of-type(3) .img1 {
+  width: 50%;
+}
+.p5 section:nth-of-type(4) {
+  position: static;
+}
+.p5 section:nth-of-type(4) img {
+  position: absolute;
+}
+.p5 section:nth-of-type(4) .img1 {
+  width: 50%;
+  right: 30%;
+  bottom: 10%;
+}
+.p5 section:nth-of-type(4) .img2 {
+  right: 5%;
+  bottom: 0;
+  width: 30%;
+}
+.p5 section:nth-of-type(4) .img3 {
+  width: 45%;
+  bottom: 22%;
+  right: -10%;
+}
+.p5 section:nth-of-type(4) .img4 {
+  width: 5%;
+  bottom: 13%;
+  right: 5%;
+}
+
+.p5-mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  display: none;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.p5-mask .img1 {
+  position: absolute;
+  right: 10%;
+  top: 5%;
+  width: 20%;
+}
+.p5-mask .img2 {
+  position: absolute;
+  top: 30%;
+  right: 15%;
+  width: 25%;
+}
+.p5-mask .img3 {
+  position: absolute;
+  top: 25%;
+  right: 10%;
+  width: 80%;
 }

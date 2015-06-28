@@ -28,10 +28,10 @@ body{
 .swiper-container {
   width: 100%;
   height: 100%;
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
 }
 .swiper-slide{
-  overflow-y: auto;
-  -webkit-overflow-scrolling:touch;
+  overflow: hidden;
   -webkit-tap-highlight-color:rgba(0,0,0,0);
 }
 .swiper-slide,.sd-cont{
@@ -43,6 +43,7 @@ body{
 img{
   max-width: 100%;
   height: auto;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 .sd-cont{
   height: 100%;
@@ -61,8 +62,29 @@ a,a:link,a:active,a:visited{
 .rel{
   position: relative;
 }
-
+.ac{
+  -webkit-animation-play-state: running!important;
+  animation-play-state: running!important;
+}
 /*page first*/
+@include keyframes(zoomPop){
+  from{
+    @include box-shadow(0 0 0 0 rgba(0,0,0,.3));
+  }to{
+    @include box-shadow(0 0 0 10px rgba(0,0,0,.3))
+     }
+}
+.tap-btn{
+  position: absolute;
+  z-index: $zi-vtop;
+  width:30px;
+  height: 30px;
+  border-radius:15px;
+  background-color: rgba(0,0,0,.6);
+  left:50%;
+  bottom: 30%;
+  @include animation(zoomPop 1s infinite ease);
+}
 .pg1{
   padding-top: 5%;
   @extend %clear;
@@ -70,6 +92,7 @@ a,a:link,a:active,a:visited{
     float: left;
     width: 50%;
     border: 1px solid $base-c;
+    opacity: 0;
     img{
       position: absolute;
     }
@@ -149,11 +172,10 @@ a,a:link,a:active,a:visited{
       }
     }
   }
-
   .start-btn{
     position: absolute;
     bottom: 10%;
-    left: 50%;
+    left: 24%;
     width: 52.682%;
     height: 0;
     padding-top:18.945%;
@@ -161,10 +183,8 @@ a,a:link,a:active,a:visited{
     outline: none;
     background: image-url('p1/btn-index.png') transparent no-repeat center center;
     background-size:contain;
-    @include translate3d(-50%,0,0);
   }
 }
-
 /*page second*/
 #page-swiper-wrapper>.swiper-slide:nth-of-type(2){
   background: image-url('p2/pg2-bg.png') center bottom repeat-x;
@@ -311,9 +331,23 @@ $gender-spacing:10px;
         right: 0;
         top: 0;
         bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items:center;
         text-align: center;
         font-size: 1em;
-        padding:13% 10% 0 12%;
+        padding:0 10% 0 12%;
+        &:before{
+          content: '';
+          width: 1px;
+          height: 100%;
+          display: table-cell;
+          vertical-align: middle;
+        }
+       span{
+         display: table-cell;
+         vertical-align: middle;
+       }
         @include MMQ(small){
           font-size: 1.6em;
         }
@@ -379,3 +413,108 @@ $gender-spacing:10px;
     }
   }
 }
+.p5{
+  section{
+    &:nth-of-type(1){
+      text-align: center;
+      padding-top: 5%;
+      .img1{
+        width:50%;
+      }
+    }
+    &:nth-of-type(2){
+      width: 100%;
+      height:0;
+      padding-top:92.474916%;
+      background: image-url('p5/box.png') center center no-repeat;
+      background-size: contain;
+      position: relative;
+      .scroll-bar{
+        position: absolute;
+        right:5%;top:5%;
+        width: 5px;
+        background-color: rgba(0,0,0,.5);
+        border-radius: 2px;
+      }
+
+      .inner{
+        position: absolute;
+        z-index: $zi-vtop;
+        width: 90%;
+        height: 90%;
+        left: 5%;top: 5%;
+        overflow-y: hidden;
+
+        h2{
+          font-size: 14px;
+          margin: 0.5em 0;
+          text-align: center;
+        }
+        li{
+          padding-left: 0.5em;
+        }
+      }
+    }
+    &:nth-of-type(3){
+      text-align: center;
+      padding-top: 5%;
+      .img1{
+        width: 50%;
+      }
+    }
+    &:nth-of-type(4){
+      position: static;
+      img{
+        position: absolute;
+      }
+      .img1{
+        width: 50%;
+        right: 30%;
+        bottom: 10%;
+      }
+      .img2{
+        right: 5%;
+        bottom: 0;
+        width: 30%;
+      }
+      .img3{
+        width:45%;
+        bottom: 22%;
+        right: -10%;
+      }
+      .img4{
+        width:5%;
+        bottom: 13%;
+        right:5%;
+      }
+    }
+  }
+}
+
+.p5-mask{
+  position: absolute;
+  left: 0;top: 0;
+  height: 100%;
+  width: 100%;
+  display: none;
+  z-index: $zi-vtop;
+  background-color: rgba(0,0,0,0.8);
+  .img1{
+    position: absolute;
+    right: 10%;top: 5%;
+    width: 20%;
+  }
+  .img2{
+    position: absolute;
+    top:30%;
+    right: 15%;
+    width: 25%;
+  }
+  .img3{
+    position: absolute;
+    top: 25%;
+    right: 10%;
+    width: 80%;
+  }
+}
+

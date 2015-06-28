@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui,user-scalable=no">
+    <meta http-equiv="cleartype" content="on">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- This script prevents links from opening in Mobile Safari. https://gist.github.com/1042026 -->
+    <!--
+    <script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script>
+    -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/enroll.css"/>
+</head>
+<body>
+<div class="page-wrapper">
+    <div class="page-inner">
+        <div class="board">
+            <img src="img/enroll/rope.png" alt="" class="rope"/>
+            <label>
+                <img src="img/enroll/p_name.png" alt=""/>
+                <input type="text"  class="valid-field" data-validate="require"/>
+            </label>
+            <label>
+                <img src="img/enroll/p_tel.png" alt=""/>
+                <input type="tel" class="valid-field"  data-validate="tel"/>
+            </label>
+            <label>
+                <img src="img/enroll/p_expect.png" alt=""/>
+                <input type="text" class="valid-field"  data-validate="number"/>
+            </label>
+        </div>
+        <a href="#" class="btn" id="sub-btn"><img src="img/enroll/btn.png" alt=""/></a>
+    </div>
+    <div class="bg">
+        <img src="img/enroll/cld1.png" alt="" class="cld1"/>
+        <img src="img/enroll/cld2.png" alt="" class="cld2"/>
+        <img src="img/enroll/cld3.png" alt="" class="cld3"/>
+        <img src="img/enroll/plane.png" alt="" class="plane"/>
+    </div>
+</div>
+
+<script type="text/javascript">
+    (function(win,doc,undefined) {
+        var slice = [].slice;
+        var queryAll = document.querySelectorAll;
+        var query = document.querySelector;
+        var textIpt = slice.call(queryAll.call(doc, '.valid-field'));
+        var subBtn = query.call(doc, '#sub-btn');
+
+        /*工具函数------------------------------------------------------*/
+        var byId = function (id) {
+            return doc.getElementById(id);
+        };
+        var trim = (function () {
+            if (typeof String.prototype.trim === 'function') {
+                return function (str) {
+                    return str.trim();
+                }
+            } else {
+                return function (str) {
+                    return str.replace(/^(\s*)|(\s*)$/, '');
+                }
+            }
+        })();
+        var hasClass = function (ele, cls) {
+            return ele.className.indexOf(cls) !== -1;
+        };
+        var addClass = function (ele, cls) {
+            if (hasClass(ele, cls)) {
+                return true;
+            }
+            ele.className = trim(ele.className) + ' ' + cls;
+        };
+        var rmClass = function (ele, cls) {
+            if (!hasClass(ele, cls)) {
+                return true;
+            }
+            var temp = ele.className.replace(cls, '');
+            ele.className = trim(temp);
+        };
+        /*工具函数结束------------------------------------------------------*/
+
+        /*通用封装 --------------------------------------------------------*/
+        /**
+         *
+         * @param eles 要验证的元素，原生dom或dom数组
+         * @param fn 验证失败回调
+         * @param fnPass 验证成功回调
+         * @returns {boolean} 返回验证是否通过
+         */
+        var doValidate = function (eles, fn, fnPass) {
+            if (!eles) {
+                return false;
+            }
+            var noCB = true;
+            var ret = true;
+//每个项目验证失败的回调
+            fn = typeof fn === 'function' ? fn && (noCB = false) : function (instr) {
+                var errinfo = this.parentNode.getElementsByClassName('err-info')[0] || doc.createElement('p');
+                errinfo.innerHTML = instr;
+                errinfo.className = 'err-info';
+                this.parentNode.appendChild(errinfo);
+                addClass(this, 'error');
+            };
+            //每个字段验证成功的回调
+            fnPass = typeof fnPass === 'function' && !noCB ? fnPass : function () {
+                var errinfo = this.parentNode.getElementsByClassName('err-info')[0];
+                rmClass(this, 'error');
+                errinfo && (errinfo.innerHTML = '');
+            };
+
+            eles = eles.length ? slice.call(eles) : [eles];
+            //配置验证对象
+            var validConfig = {
+                'tel': {
+                    check: function () {
+                        return /(^1[3|5|8][0-9]{9}$)/.test(trim(this.value));
+                    },
+                    instr: '请输入真实的电话号码'
+                },
+                'email': {
+                    check: function () {
+                        return /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(trim(this.value));
+                    },
+                    instr: '请输入真实的邮箱'
+                },
+                'number':{
+                    check: function (value) {
+                        return /^[1-9]{1}[0-9]*$/.test(trim(this.value));
+                    },
+                    instr: '请输入正确的期望薪资，单位（元）'
+                },
+                'require':{
+                    check: function () {
+                        return !!trim(this.value);
+                    },
+                    instr: '该字段不能为空'
+                },
+                'custom': {
+                    check: function () {
+                        var regStr = this.getAttribute('data-cus');
+                        if (regStr) {
+                            regStr = trim(regStr);
+                            var reg = new RegExp('^' + regStr + '$');
+
+                            return reg.test(this.value) ? true : (function () {
+                                return regStr.toLowerCase() === 'true';
+                            })();
+                        }
+
+                    },
+                    instr: '验证码错误'
+                }
+            };
+
+            for (var i = 0; eles[i]; i++) {
+                var type = trim(eles[i].getAttribute('data-validate') || '');
+                var isRequire = trim(eles[i].getAttribute('data-require') || '').toLowerCase() !== 'false';
+                var instr = '';
+                if (type) {
+                    var checked = validConfig[type].check.call(eles[i]);
+                    if (!checked) {
+                        ret = false;
+                        instr = isRequire && !trim(eles[i].value).length ? '该字段不能为空' : validConfig[type].instr;
+                        fn.call(eles[i], instr);
+                    } else {
+                        fnPass.call(eles[i]);
+                    }
+
+                }
+            }
+            return ret;
+        };
+
+//绑定blur事件
+        for(var i= 0;textIpt[i];i++){
+            textIpt[i].addEventListener('blur',function(){
+                doValidate(this);
+            },false);
+            textIpt[i].addEventListener('focus',function(){
+                this.scrollIntoView();
+                doc.body.scrollTop-=80;
+            },false);
+        }
+//提交按钮点击
+        subBtn.addEventListener('click',function(){
+            var checkRet = doValidate(textIpt);//全部验证成功
+            if(checkRet){
+                subBtn.classList.add('active');
+            }
+        })
+    })(window,document);
+</script>
+</body>
+</html>
