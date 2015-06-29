@@ -1,11 +1,12 @@
 $(function(){
     var pageSwiper = new Swiper('#page-swiper', {
         direction: 'vertical',
-        speed:800,
-        initialSlide:2
+        speed:800
+
     });
     var qstSwiper = new Swiper('#qst-swiper',{
-        direction: 'vertical'
+        direction: 'vertical',
+        speed:800
     });
     qstSwiper.lockSwipeToPrev();
 
@@ -104,6 +105,12 @@ $(function(){
             maxW:document.documentElement.clientWidth || document.body.clientWidth,
             maxH:document.documentElement.clientHeight || document.body.clientHeight
         };
+        var moveHandler = function(e){
+            alert(1);
+            el.style.left = e.touches[0].pageX - (startPos.x - originPos.x) + 'px';
+            el.style.top = e.touches[0].pageY - (startPos.y - originPos.y) + 'px';
+            e.preventDefault();
+        };
         el.addEventListener('touchstart',function(e){
             startPos.x = e.touches[0].pageX;
             startPos.y = e.touches[0].pageY;
@@ -111,13 +118,9 @@ $(function(){
             originPos.y = el.offsetTop;
         },false);
 
-        el.addEventListener('touchmove',function(e){
-            el.style.left = e.touches[0].pageX - (startPos.x - originPos.x) + 'px';
-            el.style.top = e.touches[0].pageY - (startPos.y - originPos.y) + 'px';
-            e.preventDefault();
-        });
+        document.addEventListener('touchmove',moveHandler,false);
 
-        el.addEventListener('touchend',function(e){
+        document.addEventListener('touchend',function(e){
             e.preventDefault();
             var L = parseInt(el.style.left);
             var T = parseInt(el.style.top);
@@ -131,7 +134,7 @@ $(function(){
             }else if(T + elDimen.y >boundary.maxH){
                 el.style.top = boundary.maxH - elDimen.y + 'px';
             }
-            console.log(el.style.left,el.style.top);
+            //document.removeEventListener('touchmove',moveHandler,false);
         })
 
     }
@@ -173,7 +176,13 @@ $(function(){
     //preventDefault
     $('.js-noDefault').on('touchmove',false);
     //点击到下一张的类
-    $('.js-tapToNext').on('touchstart',function(){
+    var timeOutId = 0;
+    $('.js-tapToNext').on('touchend',function(){
+        timeOutId && clearTimeout(timeOutId);
+        if(this.type && this.type === 'radio'){
+            timeOutId = setTimeout(function(){qstSwiper.slideNext()},500);
+            return;
+        }
         pageSwiper.slideNext();
     });
     //测试开始
@@ -194,12 +203,23 @@ $(function(){
         var str = '<div class="swiper-slide"><div class="sd-cont p4">' +
             '<section><img src="img/p4/copter.png" alt="" class="img1"></section>'+
             '<section><img src="img/p4/qst_board.png" alt="">' +'<h2>' +temp.tit +'</h2>' +'</section>' +
-            '<section><label><input type="radio" name="qst1" value="1" class="last"><span>' +temp.a +'</span></label>' +
-            '<label><input type="radio" name="qst1" value="2" class="last"><span>' +temp.b+'</span></label></section></div></div>';
+            '<section><label><input type="radio" name="qst14" value="1" class="qst-last"><span>' +temp.a +'</span></label>' +
+            '<label><input type="radio" name="qst14" value="2" class="qst-last"><span>' +temp.b+'</span></label></section></div></div>';
 
-            '<section><label><input type="radio" name="qst1"><span>' +temp.a +'</span></label>' +
-            '<label><input type="radio" name="qst1"><span>' +temp.b+'</span></label></section></div></div>';
 
-        qstSwiper.appendSlide(str);
-    })
+         qstSwiper.appendSlide(str);
+    });
+
+
+    var testRest = [];
+    $('#qst-swiper').one('touchend','.qst-last',function(){
+        testRest.push(this.value);
+        $(':checked','#qst-swiper').each(function(index,item){
+            testRest.unshift(item.value);
+        });
+        setTimeout(function(){
+            pageSwiper.slideNext();
+        },500);
+    });
+
 });

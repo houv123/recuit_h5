@@ -236,13 +236,13 @@ a, a:link, a:active, a:visited {
   padding-top: 18.945%;
   border: none;
   outline: none;
-  background: url('../img/p1/btn-index.png?1435130410') transparent no-repeat center center;
+  background: url('../img/p1/btn-index.png?1435564759') transparent no-repeat center center;
   background-size: contain;
 }
 
 /*page second*/
 #page-swiper-wrapper > .swiper-slide:nth-of-type(2) {
-  background: url('../img/p2/pg2-bg.png?1435130410') center bottom repeat-x;
+  background: url('../img/p2/pg2-bg.png?1435564759') center bottom repeat-x;
   background-size: 50%;
 }
 
@@ -292,10 +292,10 @@ a, a:link, a:active, a:visited {
   margin: 0 8%;
 }
 .pg2 section:nth-of-type(2) .btn1 {
-  background-image: url('../img/p2/btn1.png?1435130410');
+  background-image: url('../img/p2/btn1.png?1435564758');
 }
 .pg2 section:nth-of-type(2) .btn2 {
-  background-image: url('../img/p2/btn2.png?1435130410');
+  background-image: url('../img/p2/btn2.png?1435564759');
 }
 
 /*page third*/
@@ -463,7 +463,7 @@ a, a:link, a:active, a:visited {
   transition: all 0.2s linear;
 }
 .p4.qst-one {
-  background: url('../img/p4/hero.png?1435130402') right bottom no-repeat;
+  background: url('../img/p4/hero.png?1435564762') right bottom no-repeat;
   background-size: 50%;
 }
 .p4.qst-one .warning {
@@ -484,7 +484,7 @@ a, a:link, a:active, a:visited {
   width: 100%;
   height: 0;
   padding-top: 92.474916%;
-  background: url('../img/p5/box.png?1435130402') center center no-repeat;
+  background: url('../img/p5/box.png?1435564762') center center no-repeat;
   background-size: contain;
   position: relative;
 }
@@ -527,23 +527,23 @@ a, a:link, a:active, a:visited {
   position: absolute;
 }
 .p5 section:nth-of-type(4) .img1 {
-  width: 50%;
-  right: 30%;
-  bottom: 10%;
+  width: 40%;
+  right: 17%;
+  bottom: 8%;
 }
 .p5 section:nth-of-type(4) .img2 {
   right: 5%;
   bottom: 0;
-  width: 30%;
+  width: 20%;
 }
 .p5 section:nth-of-type(4) .img3 {
-  width: 45%;
-  bottom: 22%;
+  width: 35%;
+  bottom: 17%;
   right: -10%;
 }
 .p5 section:nth-of-type(4) .img4 {
   width: 5%;
-  bottom: 13%;
+  bottom: 10%;
   right: 5%;
 }
 
