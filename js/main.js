@@ -2,7 +2,6 @@ $(function(){
     var pageSwiper = new Swiper('#page-swiper', {
         direction: 'vertical',
         speed:800
-
     });
     var qstSwiper = new Swiper('#qst-swiper',{
         direction: 'vertical',
@@ -58,7 +57,7 @@ $(function(){
         $(this).css('display','none');
     });
 
-    //首页动画
+    //动画方法
     var slice = [].slice;
     function defineDelay(el){
         el = el.length || [el];
@@ -105,37 +104,39 @@ $(function(){
             maxW:document.documentElement.clientWidth || document.body.clientWidth,
             maxH:document.documentElement.clientHeight || document.body.clientHeight
         };
-        var moveHandler = function(e){
-            alert(1);
-            el.style.left = e.touches[0].pageX - (startPos.x - originPos.x) + 'px';
-            el.style.top = e.touches[0].pageY - (startPos.y - originPos.y) + 'px';
-            e.preventDefault();
-        };
+       
         el.addEventListener('touchstart',function(e){
             startPos.x = e.touches[0].pageX;
             startPos.y = e.touches[0].pageY;
             originPos.x = el.offsetLeft;
             originPos.y = el.offsetTop;
+
+            
+             
         },false);
 
-        document.addEventListener('touchmove',moveHandler,false);
-
-        document.addEventListener('touchend',function(e){
+        el.addEventListener('touchmove',function(e){
+            el.style.left = e.touches[0].pageX - (startPos.x - originPos.x) + 'px';
+            el.style.top = e.touches[0].pageY - (startPos.y - originPos.y) + 'px';
             e.preventDefault();
-            var L = parseInt(el.style.left);
-            var T = parseInt(el.style.top);
-            if(L - 10 < 0){
-                el.style.left = 10 + 'px';
-            }else if(L + elDimen.x > boundary.maxW){
-                el.style.left = boundary.maxW - elDimen.x +'px';
-            }
-            if(T - 10 < 0){
-                el.style.top = 10 + 'px';
-            }else if(T + elDimen.y >boundary.maxH){
-                el.style.top = boundary.maxH - elDimen.y + 'px';
-            }
-            //document.removeEventListener('touchmove',moveHandler,false);
-        })
+        },false);
+       
+        el.addEventListener('touchend',function(e){
+                        e.preventDefault();
+                        var L = parseInt(el.style.left);
+                        var T = parseInt(el.style.top);
+                        if(L - 10 < 0){
+                            el.style.left = 10 + 'px';
+                        }else if(L + elDimen.x > boundary.maxW){
+                            el.style.left = boundary.maxW - elDimen.x +'px';
+                        }
+                        if(T - 10 < 0){
+                            el.style.top = 10 + 'px';
+                        }else if(T + elDimen.y >boundary.maxH){
+                            el.style.top = boundary.maxH - elDimen.y + 'px';
+                        }
+                    });
+        
 
     }
     drag($('#tap-btn')[0]);
@@ -173,19 +174,25 @@ $(function(){
         }
         tapIndex++;
     });
+
+
     //preventDefault
     $('.js-noDefault').on('touchmove',false);
-    //点击到下一张的类
+
+
+    //点击到下一张
     var timeOutId = 0;
-    $('.js-tapToNext').on('touchend',function(){
+    $('.js-tapToNext').on('click',function(){
         timeOutId && clearTimeout(timeOutId);
         if(this.type && this.type === 'radio'){
-            timeOutId = setTimeout(function(){qstSwiper.slideNext()},500);
+            timeOutId = setTimeout(function(){qstSwiper.slideNext()},300);
             return;
         }
         pageSwiper.slideNext();
     });
-    //测试开始
+
+
+    //性别选择结束后动态插入最后一个问题
     var boyStr = {
         tit:'Q14:你的身高是168-187CM，体重不低于50公斤吗？',
         a:'A、完全符合，我就是机长的标准身材',
@@ -197,7 +204,7 @@ $(function(){
         b:'B.万万没想到，身材是我成为机长路上的绊脚石'
     };
 
-    $('#test-begin').on('touchstart',function(){
+    $('#test-begin').on('click',function(){
         var temp = $('.gender-btn:checked').value === 'boy'?boyStr:girlStr;
 
         var str = '<div class="swiper-slide"><div class="sd-cont p4">' +
@@ -208,11 +215,12 @@ $(function(){
 
 
          qstSwiper.appendSlide(str);
+          pageSwiper.slideNext();
+
     });
-
-
+//最后一题按钮
     var testRest = [];
-    $('#qst-swiper').one('touchend','.qst-last',function(){
+    $('#qst-swiper').one('click','.qst-last',function(){
         testRest.push(this.value);
         $(':checked','#qst-swiper').each(function(index,item){
             testRest.unshift(item.value);
@@ -221,5 +229,13 @@ $(function(){
             pageSwiper.slideNext();
         },500);
     });
+//动画触发
+    pageSwiper.on('slideChangeEnd',function(swiper){
+        var active = swiper.activeIndex;
+        var cur = swiper.slides[active];
+        $(cur).find('.animated').addClass('ac');
+    })
+
+
 
 });
