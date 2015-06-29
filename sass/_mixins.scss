@@ -1,0 +1,63 @@
+//media require mixin==========mobile first
+@mixin MMQ($point){
+  @if $point == small{
+    @media only screen and (min-width:$small){
+      @content;
+    }
+  }@else if $point == middle{
+    @media only screen and (min-width:$middle){
+      @content;
+    }
+  }@else if $point == large{
+    @media only screen and (min-width:$large){
+      @content;
+    }
+  }
+}
+//media require mixin===================non mobile first
+@mixin MQ($p){
+  @if $p == wideScreen{
+    @media only screen and (max-width:$wideScreen){
+      @content;
+    }
+  }@else if $p == desktop{
+    @media only screen and (max-width:$desktop){
+      @content;
+    }
+  }@else if $p == tablet{
+    @media only screen and (max-width:$tablet){
+      @content;
+    }
+   }@else if $p == phone{
+    @media only screen and (max-width:$phone){
+      @content;
+    }
+  }@else if $p == retina{
+    @media only screen and (max-width:$retina){
+      @content;
+    }
+  }
+}
+
+//equal line-height
+@mixin equalH($h){
+  height: $h;
+  line-height: $h;
+}
+//absolute center
+@mixin absoHorizonCenter($w,$h){
+  width:$w;
+  left: 50%;
+  @include equalH($h);
+  margin-left: -$w / 2;
+}
+//border-box
+@mixin box-sizing($box){
+  -moz-box-sizing:$box;
+  -webkit-box-sizing:$box;
+  -o-box-sizing:$box;
+  box-sizing:$box;
+}
+
+
+

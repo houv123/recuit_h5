@@ -1,0 +1,130 @@
+body {
+  font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft Yahei", Arial, STHeiti, sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+}
+
+/*global --------------------*/
+body, html {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+input {
+  outline: none;
+  border: 1px solid #0f1010;
+  border-radius: 4px;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.page-wrapper {
+  height: 100%;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+}
+
+.page-inner {
+  width: 90%;
+  margin: auto;
+  padding-top: 1px;
+  box-sizing: border-box;
+  position: relative;
+}
+.page-inner .board {
+  padding: 2em 0;
+  border: 1px solid #0f1010;
+  box-shadow: 3px 3px 0 #282a2a;
+  margin-top: 17%;
+  position: relative;
+  box-sizing: border-box;
+  padding-left: 5%;
+}
+.page-inner .board label {
+  display: block;
+  margin-bottom: 1.5em;
+  position: relative;
+}
+.page-inner .board label img {
+  width: 30%;
+  margin-right: 3%;
+}
+.page-inner .board input {
+  width: 60%;
+  text-indent: 1em;
+  line-height: 2em;
+  height: 2em;
+}
+.page-inner .rope {
+  position: absolute;
+  bottom: 100%;
+  width: 20%;
+  left: 42%;
+}
+.page-inner .btn {
+  width: 30%;
+  display: block;
+  margin: 1em auto;
+}
+.page-inner .err-info {
+  position: absolute;
+  right: 5%;
+  top: 100%;
+  margin-top: 2px;
+  font-size: 12px;
+  color: #ff3333;
+}
+
+.bg img {
+  position: absolute;
+  z-index: 0;
+}
+.bg img.cld1 {
+  width: 20%;
+  bottom: 20%;
+}
+.bg img.cld2 {
+  width: 24%;
+  left: 0;
+  bottom: 0;
+}
+.bg img.cld3 {
+  width: 10%;
+  right: 0;
+  bottom: 0;
+}
+.bg img.plane {
+  width: 40%;
+  right: 20%;
+  bottom: 10%;
+}
+
+.enroll-done {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.enroll-done header {
+  padding: 1em 0;
+}
+.enroll-done .txt-box section {
+  margin-top: 1.5em;
+  line-height: 1.5;
+}
+.enroll-done .txt-box h2 {
+  font-size: 16px;
+  margin: 0.5em;
+}
+.enroll-done .txt-box h3 {
+  font-size: 14px;
+  margin: 0.5em;
+}

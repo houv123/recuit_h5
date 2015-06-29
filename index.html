@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui,user-scalable=no">
+        <meta http-equiv="cleartype" content="on">
+
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <!-- This script prevents links from opening in Mobile Safari. https://gist.github.com/1042026 -->
+        <!--
+        <script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script>
+        -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/swiper.min.css"/>
+        <link rel="stylesheet" href="css/animate.css"/>
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+    <main class="page-wrapper">
+        <div class="swiper-container" id="page-swiper">
+            <div class="swiper-wrapper" id="page-swiper-wrapper">
+                <!--page1    漫画--引导页-->
+                <div class="swiper-slide swiper-no-swiping js-noDefault" style="position: relative">
+                    <div class="tap-btn" id="tap-btn">
+                        <span style="position: absolute;top: 130%;color: #000;white-space: nowrap;text-indent: -3em;">点我看王大锤的故事</span>
+                    </div>
+
+                    <div class="sd-cont pg1" id="page1">
+                        <section class="animated" data-effect="fadeIn" data-index="0">
+                            <img src="img/p1/t1.png" alt="" class="animated img1"  data-effect="fadeInDown" data-index="0"/>
+                            <img src="img/p1/portrait1.png" alt="" class="animated img2" data-effect="bounceInLeft" data-index="0"/>
+                            <img src="img/p1/wd1.png" alt="" class="animated img3" data-effect="zoomIn" data-index="1"/>
+                        </section>
+                        <section class="animated" data-effect="fadeIn" data-index="2">
+                            <img src="img/p1/t2.png" alt="" class="animated img1" data-effect="fadeInDown" data-index="2"/>
+                            <img src="img/p1/portrait2-1.png" alt="" class="animated img2" data-effect="fadeInUp" data-index="2"/>
+                            <img src="img/p1/portrait2-2.png" alt="" class="animated img3" data-effect="fadeInRight" data-index="4"/>
+                            <img src="img/p1/wd2.png" alt="" class="animated img4" data-effect=" zoomIn" data-index="3"/>
+                        </section>
+                        <section class="animated" data-effect="fadeIn" data-index="5">
+                            <img src="img/p1/t3-1.png" alt="" class="animated img1" data-effect="fadeInUp" data-index="5"/>
+                            <img src="img/p1/portrait3-1.png" alt="" class="animated img2" data-effect="fadeInUp" data-index="5"/>
+                            <img src="img/p1/t3-2.png" alt="" class="animated img3" data-effect="zoomIn" data-index="6"/>
+                        </section>
+                        <section class="animated" data-effect="fadeIn" data-index="7">
+                            <img src="img/p1/wd4-1.png" alt="" class="animated img1" data-effect="fadeInUp" data-index="9"/>
+                            <img src="img/p1/portrait4-1.png" alt="" class="animated img2" data-effect="fadeInRight" data-index="7"/>
+                            <img src="img/p1/portrait4-2.png" alt="" class="animated img3" data-effect="bounceIn" data-index="8"/>
+                            <img src="img/p1/wd4-2.png" alt="" class="animated img4" data-effect="bounceInUp" data-index="8"/>
+                        </section>
+                        <input type="button" class="start-btn animated fadeInUp js-tapToNext" id="start-btn"/>
+                    </div>
+                </div>
+                <!--page2  关注微信-->
+                <div class="swiper-slide swiper-no-swiping js-noDefault">
+                    <div class="sd-cont pg2">
+                        <section>
+                            <img src="img/p2/plane.png" alt="" class="img1"/>
+                            <img src="img/p2/cld1.png" alt="" class="img2"/>
+                            <img src="img/p2/cld2.png" alt="" class="img3"/>
+                        </section>
+                        <section>
+                            <img src="img/p2/t1.png" alt="" class="img1"/>
+                            <img src="img/p2/t2.png" alt="" class="img2"/>
+                            <a href="#" class="btn1"></a>
+                            <a href="#" class="btn2 js-tapToNext"></a>
+                        </section>
+                    </div>
+
+                </div>
+                <!--page3  性别选择页-->
+                <div class="swiper-slide swiper-no-swiping">
+                    <div class="sd-cont pg3">
+                        <section class="boy">
+                            <img src="img/p3/boy.png" alt="" class="img1"/>
+                            <div class="rel">
+                                <img src="img/p3/t1.png" alt="" class="img2"/>
+                                <label>
+                                    <input class="gender-btn" type="radio" name="gender" value="boy" checked="checked"/>
+                                    <span class="img3 male-icon gender-sprite"></span>
+                                </label>
+                                <img src="img/p3/male.png" alt="" class="img4"/>
+                            </div>
+                        </section>
+                        <section class="girl">
+                            <img src="img/p3/girl.png" alt="" class="img1"/>
+                            <div class="rel">
+                                <img src="img/p3/t2.png" alt="" class="img2"/>
+                                <label>
+                                    <input class="gender-btn" type="radio" name="gender" value="girl"/>
+                                    <span class="img3 female-icon gender-sprite"></span>
+                                </label>
+                                <img src="img/p3/female.png" alt="" class="img4"/>
+                             </div>
+                        </section>
+                        <section class="btn-box">
+                            <img src="img/p3/btn.png" alt="" class="js-tapToNext" id="test-begin">
+                        </section>
+                    </div>
+                </div>
+                <!--page4   问题页面开始--------------------------------------------->
+                <div class="swiper-slide">
+                    <div class="swiper-container" id="qst-swiper">
+                    <div class="swiper-wrapper">
+                        <!--问题页面第一页-->
+                        <div class="swiper-slide">
+                            <div class="sd-cont p4 qst-one">
+                                <section>
+                                    <img src="img/p4/copter.png" alt="" class="img1">
+                                </section>
+                                <section>
+                                    <img src="img/p4/qst_board.png" alt="">
+                                    <h2>Q1:你的身上无纹身和刺字吗？</h2>
+                                </section>
+                                <section>
+                                    <label>
+                                        <input type="radio" name="qst1" value="1" class="js-tapToNext">
+                                        <span>A.有纹身，只怪当初太冲动！</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="qst1" value="2" class="js-tapToNext">
+                                        <span>B.身体发肤受之父母，没有纹身和刺字！</span>
+                                    </label>
+                                </section>
+                                <img src="img/p4/wd1.png" alt="" class="warning">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="sd-cont p4">
+                                <section>
+                                    <img src="img/p4/copter.png" alt="" class="img1">
+                                </section>
+                                <section>
+                                    <img src="img/p4/qst_board.png" alt="">
+                                    <h2>Q2:是否不晕车、晕船？</h2>
+                                </section>
+                                <section>
+                                    <label>
+                                        <input type="radio" name="qst2" value="1" class="js-tapToNext">
+                                        <span>A.从来不晕</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="qst2" value="2" class="js-tapToNext">
+                                        <span>B.偶尔晕，欧多茄？</span>
+                                    </label>
+                                </section>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="sd-cont p4">
+                                <section>
+                                    <img src="img/p4/copter.png" alt="" class="img1">
+                                </section>
+                                <section>
+                                    <img src="img/p4/qst_board.png" alt="">
+                                    <h2>Q3:无骨与关节疾病或畸形；无“O”型或“X”型腿？</h2>
+                                </section>
+                                <section>
+                                    <label>
+                                        <input type="radio" name="qst3" value="1" class="js-tapToNext">
+                                        <span>A.完全没有，都是正常完美的哦</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="qst3" value="2" class="js-tapToNext">
+                                        <span>B.啊哦，我不合格</span>
+                                    </label>
+                                </section>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="sd-cont p4">
+                                <section>
+                                    <img src="img/p4/copter.png" alt="" class="img1">
+                                </section>
+                                <section>
+                                    <img src="img/p4/qst_board.png" alt="">
+                                    <h2>Q4:无口吃，口齿清楚、发音准确</h2>
+                                </section>
+                                <section>
+                                    <label>
+                                        <input type="radio" name="qst4" value="1" class="js-tapToNext">
+                                        <span>A.我就是伶牙俐齿的主</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="qst4" value="2" class="js-tapToNext">
+                                        <span>B.不合格，我只能转行了</span>
+                                    </label>
+                                </section>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="sd-cont p4">
+                                <section>
+                                    <img src="img/p4/copter.png" alt="" class="img1">
+                                </section>
+                                <section>
+                                    <img src="img/p4/qst_board.png" alt="">
+                                    <h2>Q5:任何一眼的裸眼视力高于C字表0.3（可参考E字表的4.9）；无色盲、色弱、斜视</h2>
+                                </section>
+                                <section>
+                                    <label>
+                                        <input type="radio" name="qst5" value="1" class="js-tapToNext">
+                                        <span>A.视力杠杠的，这么多年的眼保健操没白做</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="qst5" value="2" class="js-tapToNext">
+                                        <span>B.不达标，我还是开开汽车吧</span>
+                                    </label>
+                                </section>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="sd-cont p4">
+                                <section>
+                                    <img src="img/p4/copter.png" alt=""class="img1">
+                                </section>
+                                <section>
+                                    <img src="img/p4/qst_board.png" alt="">
+                                    <h2>Q6:无较重的砂眼或倒睫</h2>
+                                </section>
+                                <section>
+                                    <label>
+                                        <input type="radio" name="qst6" value="1" class="js-tapToNext">
+                                        <span>A.没有砂眼和倒睫</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="qst6" value="2" class="js-tapToNext">
+                                        <span>B.哎，我还是安静的当乘客吧</span>
+                                    </label>
+                                </section>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="sd-cont p4">
+                                <section>
+                                    <img src="img/p4/copter.png" alt="" class="img1">
+                                </section>
+                                <section>
+                                    <img src="img/p4/qst_board.png" alt="">
+                                    <h2>Q7:无久治不愈的皮肤病，如头癣、湿疹、牛皮癣、慢性荨麻疹等；</h2>
+                                </section>
+                                <section>
+                                    <label>
+                                        <input type="radio" name="qst7" value="1" class="js-tapToNext">
+                                        <span>A.没有任何皮肤病，都是健康哒</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="qst7" value="2" class="js-tapToNext">
+                                        <span>B.呜呜呜，不达标</span>
+                                    </label>
+                                </section>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="sd-cont p4">
+                                <section>
+                                    <img src="img/p4/copter.png" alt="" class="img1">
+                                </section>
+                                <section>
+                                    <img src="img/p4/qst_board.png" alt="">
+                                    <h2>Q8:无肾炎或血尿，蛋白尿；无慢性肠胃道疾病；</h2>
+                                </section>
+                                <section>
+                                    <label>
+                                        <input type="radio" name="qst8" value="1" class="js-tapToNext">
+                                        <span>A.身体棒棒哒，完全达标</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="qst8" value="2" class="js-tapToNext">
+                                        <span>B.我还需要多注意身体</span>
+                                    </label>
+                                </section>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="sd-cont p4">
+                                <section>
+                                    <img src="img/p4/copter.png" alt="" class="img1">
+                                </section>
+                                <section>
+                                    <img src="img/p4/qst_board.png" alt="">
+                                    <h2>Q9:无肺结核；</h2>
+                                </section>
+                                <section>
+                                    <label>
+                                        <input type="radio" name="qst9" value="1" class="js-tapToNext">
+                                        <span>A.合格，没有肺结核</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="qst9" value="2" class="js-tapToNext">
+                                        <span>B.oh，no！我不可以当机长了！</span>
+                                    </label>
+                                </section>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="sd-cont p4">
+                                <section>
+                                    <img src="img/p4/copter.png" alt="" class="img1">
+                                </section>
+                                <section>
+                                    <img src="img/p4/qst_board.png" alt="">
+                                    <h2>Q10:无肝炎或肝脾肿大，无HbsAg阳性；</h2>
+                                </section>
+                                <section>
+                                    <label>
+                                        <input type="radio" value="1" name="qst1" class="js-tapToNext">
+                                        <span>A.无，很健康</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="qst1" value="2" class="js-tapToNext">
+                                        <span>B.不合格，默默路过</span>
+                                    </label>
+                                </section>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="sd-cont p4">
+                                <section>
+                                    <img src="img/p4/copter.png" alt="" class="img1">
+                                </section>
+                                <section>
+                                    <img src="img/p4/qst_board.png" alt="">
+                                    <h2>Q11:无传染病史、精神病家族史、癫痫病史；</h2>
+                                </section>
+                                <section>
+                                    <label>
+                                        <input type="radio" name="qst1" value="1" class="js-tapToNext">
+                                        <span>A.从来没有听说过有这些家族病史</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="qst1" value="2" class="js-tapToNext">
+                                        <span>B.当机长的梦想又破灭了</span>
+                                    </label>
+                                </section>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="sd-cont p4">
+                                <section>
+                                    <img src="img/p4/copter.png" alt="" class="img1">
+                                </section>
+                                <section>
+                                    <img src="img/p4/qst_board.png" alt="">
+                                    <h2>Q12:无颜面五官明显不对称；</h2>
+                                </section>
+                                <section>
+                                    <label>
+                                        <input type="radio" name="qst1" value="1" class="js-tapToNext">
+                                        <span>A.颜值这么高，当然没有明显不对称啦</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="qst1" value="2"  class="js-tapToNext">
+                                        <span>B.不合格，可以整容吗</span>
+                                    </label>
+                                </section>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="sd-cont p4">
+                                <section>
+                                    <img src="img/p4/copter.png" alt="" class="img1">
+                                </section>
+                                <section>
+                                    <img src="img/p4/qst_board.png" alt="">
+                                    <h2>Q13:无耳朵流脓、听力差、经常耳鸣症状；</h2>
+                                </section>
+                                <section>
+                                    <label>
+                                        <input type="radio" name="qst1" value="1" class="js-tapToNext">
+                                        <span>A.耳聪目明，没有这些症状</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="qst1" value="2" class="js-tapToNext">
+                                        <span>B.呵呵哒，我还是不当机长了</span>
+                                    </label>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <!--问题页面结束-->
+
+
+                <!--page5     点击分享----------------->
+
+                <div class="swiper-slide">
+                    <div class="sd-cont p5">
+                        <section>
+                            <img src="img/p5/t1.png" alt="" class="img1"/>
+                        </section>
+                        <section>
+                            <div class="scroll-bar" id="scroll-bar"></div>
+                            <div class="inner swiper-no-swiping" id="info-board">
+                                <h2>*注：凡有下列病史或体征者不建议报名体检：</h2>
+                                <ul>
+                                    <li>1.心理异常；四肢残缺或身体有明显畸形；</li>
+                                    <li>2.有开颅、开胸手术以及头部外伤昏迷史者；</li>
+                                    <li>3.经常腰腿痛或一年内有骨折史者</li>
+                                    <li>4.有慢性肠胃病或7岁后患过传染性肝炎者；</li>
+                                    <li>5.食物、药物过敏史；严重偏食；</li>
+                                    <li>6.患过脑膜炎、脑炎、肾炎、结核病或有哮喘及经常咳嗽者；</li>
+                                    <li>7.家庭及本人有精神病、癫痫或本人有晕剧史者；</li>
+                                    <li>8.口吃或结巴者；</li>
+                                    <li>9.有梦游症或13岁后仍有尿床现象者；</li>
+                                    <li>10.乘车船恶心、呕吐者；</li>
+                                    <li>11.牙齿脱落3个以上或明显咬合不良者；</li>
+                                    <li>12.明显斜视者；平时戴眼镜学习者及夜盲者；</li>
+                                    <li>13.经常头痛、头昏、失眠者</li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section>
+                            <img src="img/p5/check_btn.png" alt="" class="img1" id="check-btn"/>
+                        </section>
+                        <section>
+                            <img src="img/p5/wd1.png" alt="" class="img1"/>
+                            <img src="img/p5/hero.png" alt="" class="img2"/>
+                            <img src="img/p5/t2.png" alt="" class="img3"/>
+                            <img src="img/p5/arrow.png" alt="" class="img4"/>
+                        </section>
+                    </div>
+                    <div class="p5-mask" id="p5-mask">
+                        <img src="img/p5/mask_arrow.png" alt="" class="img1"/>
+                        <img src="img/p5/mask_hero.png" alt="" class="img2"/>
+                        <img src="img/p5/mask_t1.png" alt="" class="img3"/>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+        <script src="js/vendor/jquery-2.1.0.min.js"></script>
+        <script src="js/swiper.jquery.min.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
