@@ -1,2 +1,6 @@
 node_modules
+<<<<<<< HEAD
 .sass-cache
+=======
+.sass-cache
+>>>>>>> 93cd0494d2ea5d284f3f2f20b961b5a4de78340e

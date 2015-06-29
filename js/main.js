@@ -194,8 +194,13 @@ $(function(){
         var str = '<div class="swiper-slide"><div class="sd-cont p4">' +
             '<section><img src="img/p4/copter.png" alt="" class="img1"></section>'+
             '<section><img src="img/p4/qst_board.png" alt="">' +'<h2>' +temp.tit +'</h2>' +'</section>' +
+<<<<<<< HEAD
             '<section><label><input type="radio" name="qst1" value="1" class="last"><span>' +temp.a +'</span></label>' +
             '<label><input type="radio" name="qst1" value="2" class="last"><span>' +temp.b+'</span></label></section></div></div>';
+=======
+            '<section><label><input type="radio" name="qst1"><span>' +temp.a +'</span></label>' +
+            '<label><input type="radio" name="qst1"><span>' +temp.b+'</span></label></section></div></div>';
+>>>>>>> 93cd0494d2ea5d284f3f2f20b961b5a4de78340e
 
         qstSwiper.appendSlide(str);
     })
