@@ -194,12 +194,12 @@ $(function(){
 
     //性别选择结束后动态插入最后一个问题
     var boyStr = {
-        tit:'Q14:你的身高是168-187CM，体重不低于50公斤吗？',
+        tit:'Q7:你的身高是168-187CM，体重不低于50公斤吗？',
         a:'A、完全符合，我就是机长的标准身材',
         b:'B、身高是硬伤，我也没办法'
     };
     var girlStr = {
-        tit:'Q14:你的身高是160-175CM，体重不低于45公斤吗？',
+        tit:'Q7:你的身高是160-175CM，体重不低于45公斤吗？',
         a:'A.完美身材，不要太羡慕哦',
         b:'B.万万没想到，身材是我成为机长路上的绊脚石'
     };
@@ -208,8 +208,8 @@ $(function(){
         var temp = $('.gender-btn:checked').value === 'boy'?boyStr:girlStr;
 
         var str = '<div class="swiper-slide"><div class="sd-cont p4">' +
-            '<section><img src="img/p4/copter.png" alt="" class="img1"></section>'+
-            '<section><img src="img/p4/qst_board.png" alt="">' +'<h2>' +temp.tit +'</h2>' +'</section>' +
+            '<section><img src="img/p4/copter.png" alt="" class="img1 animated fadeInUp"></section>'+
+            '<section class="animated fadeInUp"><img src="img/p4/qst_board.png" alt="">' +'<h2>' +temp.tit +'</h2>' +'</section>' +
             '<section><label><input type="radio" name="qst14" value="1" class="qst-last"><span>' +temp.a +'</span></label>' +
             '<label><input type="radio" name="qst14" value="2" class="qst-last"><span>' +temp.b+'</span></label></section></div></div>';
 
@@ -219,7 +219,7 @@ $(function(){
 
     });
 //最后一题按钮
-    var testRest = [];
+    var testRest = [];//测试结果
     $('#qst-swiper').one('click','.qst-last',function(){
         testRest.push(this.value);
         $(':checked','#qst-swiper').each(function(index,item){
@@ -233,9 +233,28 @@ $(function(){
     pageSwiper.on('slideChangeEnd',function(swiper){
         var active = swiper.activeIndex;
         var cur = swiper.slides[active];
+        if(active === 3){
+            $(cur).find('.qst-one .animated').addClass('ac');
+            return ;
+        }
         $(cur).find('.animated').addClass('ac');
-    })
+    });
+    qstSwiper.on('slideChangeEnd',function(swiper){
+        var active = swiper.activeIndex;
+        var cur = swiper.slides[active];
 
-
+        $(cur).find('.animated').addClass('ac');
+    });
+    window.onload = function(){
+        var curT = +new Date();
+        var diff  = curT - entryT;
+        setTimeout(function(){
+            var $mask = $('#page-mask');
+            $mask.children().remove();
+            $mask.animate({opacity:0},2000,function(){
+                $(this).remove();
+            });
+        },Math.max(0,1000-diff));
+    }
 
 });
