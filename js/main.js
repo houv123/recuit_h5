@@ -60,7 +60,7 @@ $(function(){
     //动画方法
     var slice = [].slice;
     function defineDelay(el){
-        el = el.length || [el];
+        el = el.length?el: [el];
         var getStr = function(t){
             return '-webkit-animation-delay: ' +t +'s;animation-delay: ' +t +'s;';
         };

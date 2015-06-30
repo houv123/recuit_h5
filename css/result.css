@@ -15,6 +15,7 @@ img {
 .page-wrapper {
   height: 100%;
   -webkit-overflow-scrolling: touch;
+    overflow: hidden;
 }
 
 .page-inner {
@@ -119,9 +120,15 @@ img {
   width: 46.6%;
   bottom: 20%;
   right: 45%;
+    -webkit-animation-delay: 0.5s;
+            animation-delay: 0.5s;
 }
 .bg .fail-img2 {
   width: 50%;
   bottom: 0;
   right: 5%;
+}
+.ac{
+    -webkit-animation-play-state: running!important;
+            animation-play-state: running!important;
 }

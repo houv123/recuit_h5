@@ -18,24 +18,28 @@
     -->
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/result.css"/>
+    <link rel="stylesheet" href="css/animate.css"/>
 </head>
 <body>
 <div class="page-wrapper fail-page">
     <div class="page-inner">
-        <section class="board">
+        <section class="board animated fadeInUp" >
             <img src="img/result/fail_t1.png" alt="" class="t1"/>
         </section>
         <section>
-            <a href="#" class="btn"><img src="img/result/fail_btn.png" alt=""/></a>
+            <a href="#" class="btn"><img src="img/result/fail_btn.png" alt="" class="animated fadeInUp"/></a>
         </section>
 
         <section class="bg">
-            <img src="img/result/fail_wd1.png" alt="" class="fail-img1"/>
-            <img src="img/result/fail_hero.png" alt="" class="fail-img2"/>
+            <img src="img/result/fail_wd1.png" alt="" class="fail-img1 animated zoomIn"/>
+            <img src="img/result/fail_hero.png" alt="" class="fail-img2 animated fadeInUp"/>
         </section>
     </div>
 </div>
 
-<script type="text/javascript"></script>
+<script src="js/vendor/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+    $('.animated').addClass('ac');
+</script>
 </body>
 </html>
