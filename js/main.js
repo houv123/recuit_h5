@@ -205,8 +205,8 @@ $(function(){
     };
 
     $('#test-begin').on('click',function(){
-        var temp = $('.gender-btn:checked').value === 'boy'?boyStr:girlStr;
-
+        var temp = $('.gender-btn:checked').val() === 'boy'?boyStr:girlStr;
+        alert($('.gender-btn:checked').val());
         var str = '<div class="swiper-slide"><div class="sd-cont p4">' +
             '<section><img src="img/p4/copter.png" alt="" class="img1 animated fadeInUp"></section>'+
             '<section class="animated fadeInUp"><img src="img/p4/qst_board.png" alt="">' +'<h2>' +temp.tit +'</h2>' +'</section>' +
